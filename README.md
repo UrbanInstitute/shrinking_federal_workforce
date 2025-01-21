@@ -6,10 +6,19 @@ This repository contains code and data for Reducing the Federal Workforce by 75 
 
 ## Repository Contents
 The Stata code reads and cleans in the various OPM and BLS datasets, merges them, and includes some basic summary statistics calculations. The data and log file are placed in a `RawData/ folder`.
-
-`opm_counties.do`
-
-The analysis should not require any special user-written commands or ado-files.  
+```
+├── opm_counties.do                  <- Conduct processing of files in /RawData and produce output.
+├── RawData                          <- Store raw data here.
+    ├── CT_cbsa_titles.xlsx                        
+    ├── CTmapping.xlsx                             
+    ├── Governmentwide CBSA as of March 2024.xlsx  
+    ├── lma-directory-2025.xlsx                    
+    ├── non2301areas.xlsx                          
+    ├── LAUS files the user must download          
+├── README.md                        <- This readme file.
+├── .gitignore                       <- File ensuring that large files from LAUS don't get pushed to this repository.
+```
+The analysis in `opm_counties.do` should not require any special user-written commands or ado-files.  
 
 ## Data
 
@@ -22,18 +31,16 @@ There are 27 records in the OPM list corresponding to micropolitan areas that dr
 Aggregations for Connecticut are handled separately because of the planned implementation of the nine planning regions in Connecticut’s new county equivalents as outlined in the [June 2022 Federal Register](https://www.federalregister.gov/documents/2022/06/06/2022-12063/change-to-county-equivalents-in-the-state-of-connecticut). The LAUS program does publish estimates for all 169 county subdivisions in Connecticut and thus those values can be matched to the nine planning regions and then to the 2023-based CBSAs (la.data.64.Connecticut.txt). Fortunately, BLS was kind enough to provide a file that maps relevant LAUS area codes to OPM 23-01 CBSA codes (CTmapping.xlsx and CT_cbsa_titles.xlsx). 
 
 It is worth noting that, effective March 2025, the federal statistical areas in the LAUS database will be converted to the [23-01 OMB basis](https://www.bls.gov/lau/notices/2024/upcoming-changes-to-metropolitan-statistical-area-delineations.htm). 
- 
-la.area
-la.area_type
-la.data.13.Connecticut
-la.data.64.County
-la.measure
-CT_cbsa_titles.xlsx
-CTmapping.xlsx
-Governmentwide CBSA as of March 2024.xlsx
-lma-directory-2025.xlsx
-non2301areas.xlsx
+
+To run `opm_counties.do`, you will have to change filepaths, and download the following [BLS LAUS flat files](https://download.bls.gov/pub/time.series/la/) to `/RawData`:
+
+* `la.area`
+* `la.area_type`
+* `la.data.13.Connecticut`
+* `la.data.64.County`
+* `la.measure`
+
 
 ### Contact
 
-Please contact Jonathan Schwabish with questions.
+Please contact [Jonathan Schwabish](https://www.urban.org/author/jonathan-schwabish) with questions.
