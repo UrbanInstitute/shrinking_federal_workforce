@@ -1,6 +1,6 @@
 # Ignore all files from BLS LAUS flat files
-/RawData/la.area
-/RawData/la.area_type
-/RawData/la.data.13.Connecticut
-/RawData/la.data.64.County
-/RawData/la.measure
+/RawData/la.area.txt
+/RawData/la.area_type.txt
+/RawData/la.data.13.Connecticut.txt
+/RawData/la.data.64.County.txt
+/RawData/la.measure.txt
